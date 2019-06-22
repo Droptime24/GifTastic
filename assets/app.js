@@ -29,9 +29,8 @@ function displayGifs() {
             $("#gifs").append(gifs);
         }
     });
+
 }
-        
-       
 // render buttons and display
 function renderButtons() {
 
@@ -40,7 +39,7 @@ function renderButtons() {
 
     // loop array
     for (var i = 0; i < topics.length; i++) {
-        var b = $(`<button class="btn btn-primary"</button>`);
+        var b = $(`<button class="btn btn-primary">`);
         b.addClass("gifs");
         b.attr("data-name", topics[i]);
         b.text(topics[i]);
@@ -49,16 +48,17 @@ function renderButtons() {
     }
 
 }
-// This function handles events where a movie button is clicked
-$("#add-gifs").on("click", ".games", function (event) {
+// This function adds a button
+$("#gif-search").on("click", ".games", function (event) {
     event.preventDefault();
     var gifAdd = $("#add-gifs").val().trim();
+    debugger
     add.push(gifAdd);
     console.log(createGif)
     // Calling renderButtons which handles the processing of our movie array
-    renderButtons();
+    
 });
-
+renderButtons();
 // Adding a click event listener to all elements with a class of "movie-btn"
 $(document).on("click", ".gifs", displayGifs);
 
