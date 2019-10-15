@@ -5,60 +5,61 @@ var topics = ["video games", "books", "music", "computer code"];
 
 // search for gifs
 function displayGifs() {
-
-    // var gifSearch = $('#search').val()
+    
+    $("#gifs-view").empty();
+    
     var gifSearch = $(this).attr("data-name");
 
-    var queryURL = (`https://api.giphy.com/v1/gifs/search?api_key=EZPRe6jQskg48yfyY2aqEb1gGO76vosj&q=${gifSearch}&limit=10&offset=0&rating=G&lang=en`);
+    var queryURL = ("https://api.giphy.com/v1/gifs/search?api_key=EZPRe6jQskg48yfyY2aqEb1gGO76vosj&q=" + gifSearch + "&limit=10&offset=0&rating=G&lang=en");
 
     console.log(gifSearch);
 
     $.ajax({
+
         url: queryURL,
         method: "GET"
+
     }).then(function (response) {
-        console.log(response)
-        console.log(queryURL)
+        // console.log("Response",response)
+        // console.log("URL Q", queryURL)
         var results = response.data;
-        console.log(results)
+        // console.log("Results", results);
 
         for (var i = 0; i < results.length; i++) {
             console.log(results[i]);
             var gifs = $('<img>');
-            gifs.attr("src", results[i].images.fixed_height.url);
-            $("#gifs").append(gifs);
+            gifs.attr("src", results[i].images.downsized_medium.url);
+            $("#gifs-view").append(gifs);
         }
     });
-
 }
 // render buttons and display
 function renderButtons() {
-
     // clear the div
-    $("#buttons").empty();
-
+    $("#buttons-area").empty();
     // loop array
     for (var i = 0; i < topics.length; i++) {
-        var b = $(`<button class="btn btn-primary">`);
+        var b = $("<button class='btn btn-primary'>");
         b.addClass("gifs");
         b.attr("data-name", topics[i]);
         b.text(topics[i]);
-        $('#buttons').prepend(b);
+        $('#buttons-area').append(b);
 
     }
 
 }
 // This function adds a button
-$("#gif-search").on("click", ".games", function (event) {
+$("#gif-search").on("click", function (event) {
     event.preventDefault();
-    var gifAdd = $("#add-gifs").val().trim();
-    debugger
-    add.push(gifAdd);
-    console.log(createGif)
+    var gifSearch = $("#search").val().trim();
+    $("#search").val("");
+    console.log("Results", gifSearch);
+    topics.push(gifSearch);
+    renderButtons();
+    
     // Calling renderButtons which handles the processing of our movie array
     
 });
-renderButtons();
 // Adding a click event listener to all elements with a class of "movie-btn"
 $(document).on("click", ".gifs", displayGifs);
 

@@ -14,51 +14,60 @@
 </head>
 
 <body class="bg-secondary">
-  <!-- Generated Buttons -->
- 
+  <div class="container">
+
     <div class="card bg-secondary">
       <div class="card-header bg-dark text-primary text-center">
         <h1>Gif Laboritorys</h1>
       </div>
-
       <div class="card-body">
-        <div id="buttons">
+        <div id="buttons-area">
+          <!-- Generated Buttons -->
+        </div>
+
+        <div class="container mx-auto my-4 pr-4 col-5 float-right">
+          <div class="form-group" id="gif-form">
+            <label for="search"> <h2>Add Gifs:</h2></label>
+
+            <input type="text" class="form-control" id="search">
+          </div>
+          <button id="gif-search" type="submit">Create</button>  
 
         </div>
       </div>
     </div>
-
-
-
-    <!-- search for more GIFS -->
-    <div class="container mx-auto my-4 pr-4 col-5 float-right">
-      <div class="form-group">
-
-        <label for="search"><h2>Add Gifs:</h2></label>
-        <input type="text" class="form-control" id="gif-search">
+    <div class="jumbotron">
+      <h1 class="display-3">Lab Results</h1>
+      <hr class="my-2">
+   
+      <div id="gifs-view" class="m-auto p-auto">
+        <!-- Gif results -->
       </div>
-      <input id="add-gifs" type="submit" value="Create">
-
     </div>
 
+    <!-- Movies will get dumped Here -->
+    
+       
+  
+
+  <!-- search for more GIFS -->
 
 
 
-    <div id="gifs"></div>
 
 
-    <!-- Optional JavaScript -->
+  <!-- Optional JavaScript -->
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-    <script src="assets/app.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+  <script src="./assets/app.js"></script>
 </body>
 
 </html>
