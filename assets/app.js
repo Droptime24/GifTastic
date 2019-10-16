@@ -9,6 +9,7 @@ function displayGifs() {
     $("#gifs-view").empty();
     
     var gifSearch = $(this).attr("data-name");
+    
 
     var queryURL = ("https://api.giphy.com/v1/gifs/search?api_key=EZPRe6jQskg48yfyY2aqEb1gGO76vosj&q=" + gifSearch + "&limit=10&offset=0&rating=G&lang=en");
 
@@ -27,7 +28,7 @@ function displayGifs() {
 
         for (var i = 0; i < results.length; i++) {
             console.log(results[i]);
-            var gifs = $('<img>');
+            var gifs = $('<img class="w-100">');
             gifs.attr("src", results[i].images.downsized_medium.url);
             $("#gifs-view").append(gifs);
         }
@@ -56,6 +57,7 @@ $("#gif-search").on("click", function (event) {
     console.log("Results", gifSearch);
     topics.push(gifSearch);
     renderButtons();
+    
     
     // Calling renderButtons which handles the processing of our movie array
     
